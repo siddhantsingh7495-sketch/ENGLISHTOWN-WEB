@@ -123,13 +123,15 @@ p {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
+    letter-spacing: -0.5px;
 }
 
 .section-desc {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     max-width: 700px;
+    line-height: 1.7;
 }
 
 /* ==========================================================================
@@ -575,16 +577,17 @@ p {
 
 .course-card {
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: none;
+    border-top: 4px solid var(--accent-color);
 }
 
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .course-content {
@@ -819,16 +822,23 @@ p {
 .testimonial-card {
     background-color: var(--white);
     padding: 40px 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     position: relative;
-    border: 1px solid var(--border-color);
+    border: none;
+    transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
 .quote-icon {
-    font-size: 2rem;
-    color: rgba(244, 180, 0, 0.3);
+    font-size: 2.5rem;
+    color: var(--accent-color);
     margin-bottom: 20px;
+    opacity: 0.9;
 }
 
 .testimonial-text {
@@ -1079,9 +1089,9 @@ p {
    16. FOOTER
    ========================================================================== */
 .footer {
-    background-color: var(--primary-color);
+    background-color: #06101E; /* Deeper premium dark */
     color: var(--white);
-    padding: 80px 0 30px;
+    padding: 100px 0 30px;
 }
 
 .footer-grid {
@@ -1295,6 +1305,10 @@ p {
     .section-title {
         font-size: 2rem;
     }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1334,4 +1348,96 @@ p {
     .timeline-item {
         padding-left: 45px;
     }
+}
+
+/* ==========================================================================
+   18. FLOATING CONTACT BUTTONS & FAQ
+   ========================================================================== */
+.floating-contact {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.call-btn {
+    background-color: var(--primary-color);
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: var(--white);
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    background: var(--light-gray);
+}
+
+.faq-answer {
+    background: var(--white);
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 500px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
 }
